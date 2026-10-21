@@ -1,46 +1,8 @@
-# WABiz — WhatsApp Business Management & AI Assistant
-
-## Informasi Proyek
-
-**Mata Kuliah:** Analisis & Pengujian Sistem  
-**Nama Proyek:** WABiz  
-**Platform:** Mobile Application  
-
----
-
-## Deskripsi Proyek
-
-WABiz merupakan aplikasi mobile yang dirancang untuk membantu lembaga pendidikan atau organisasi dalam mengelola komunikasi dengan client melalui WhatsApp secara terpusat dan terstruktur.
-
-Sistem ini menyediakan fitur pengelolaan nomor WhatsApp, data client, campaign pesan, percakapan, customer service (CS), serta AI Assistant.
-
-AI Assistant menggunakan informasi resmi yang diberikan oleh admin sebagai sumber informasi dalam membantu menjawab pertanyaan client. AI juga dapat membantu mengidentifikasi kebutuhan client dan mengarahkan percakapan kepada CS atau divisi yang sesuai.
-
----
-
-## Fitur Utama
-
-- Login Admin dan Customer Service
-- Sinkronisasi nomor WhatsApp menggunakan QR
-- Pengelolaan data client
-- Pembuatan campaign pesan
-- Pengiriman campaign secara langsung
-- Penjadwalan campaign
-- AI Assistant untuk menjawab pertanyaan client
-- Pengelolaan informasi resmi lembaga
-- Informasi pendaftaran dan link pendaftaran
-- Penyimpanan riwayat percakapan
-- Routing percakapan kepada CS atau divisi
-- Pengelolaan CS berdasarkan divisi
-- Dashboard aktivitas sistem
-
----
-
 # Desain Proyek (UML)
 
-Perancangan sistem WABiz menggunakan Unified Modeling Language (UML) untuk menggambarkan kebutuhan, aktivitas, dan interaksi dalam sistem.
+Perancangan sistem WABiz menggunakan Unified Modeling Language (UML) untuk menggambarkan kebutuhan, aktivitas, dan interaksi antara aktor dengan sistem.
 
-Diagram yang digunakan meliputi:
+Diagram UML yang digunakan dalam perancangan WABiz meliputi:
 
 - Use Case Diagram
 - Activity Diagram
@@ -50,68 +12,47 @@ Diagram yang digunakan meliputi:
 
 ## 1. Use Case Diagram
 
-Use Case Diagram menggambarkan hubungan antara aktor dengan fungsi-fungsi yang tersedia pada sistem WABiz.
+Use Case Diagram menggambarkan interaksi antara aktor dengan fungsi-fungsi yang tersedia pada sistem WABiz.
 
 ### Use Case Diagram WABiz
 
-![Use Case Diagram](docs/images/use-case.png)
+![Use Case Diagram WABiz](docs/images/use-case.png)
 
-**Aktor utama:**
+**Aktor yang terlibat:**
 
-- Admin
-- Customer Service (CS)
-- Client
-- WhatsApp Service
-- AI Service
+- **Admin** — mengelola sistem, WhatsApp, client, campaign, AI Assistant, informasi lembaga, CS, dan percakapan.
+- **Customer Service (CS)** — melihat dan menangani percakapan yang menjadi tanggung jawabnya.
+- **Client** — mengirim pesan dan berinteraksi dengan sistem melalui WhatsApp.
+- **AI** — menganalisis pesan, memberikan respons otomatis, dan membantu melakukan routing percakapan.
 
 ---
 
 ## 2. Activity Diagram
 
-Activity Diagram menggambarkan alur aktivitas yang terjadi dalam sistem WABiz, mulai dari client mengirim pesan hingga pesan diproses oleh sistem dan diteruskan kepada AI atau CS sesuai kebutuhan.
+Activity Diagram menggambarkan alur proses penanganan pesan pada sistem WABiz.
 
 ### Activity Diagram WABiz
 
-![Activity Diagram](docs/images/activity.png)
+![Activity Diagram WABiz](docs/images/activity.png)
+
+Alur utama dimulai ketika sistem menerima pesan dari client. Pesan kemudian disimpan dan dianalisis oleh AI Assistant. Sistem akan menentukan apakah pesan berkaitan dengan pendaftaran atau pertanyaan umum.
+
+Jika pesan berkaitan dengan pendaftaran, sistem mengambil informasi dan link pendaftaran kemudian dapat meneruskan percakapan kepada CS Pendaftaran.
+
+Jika pesan bukan mengenai pendaftaran, AI mengambil informasi dari knowledge lembaga dan menghasilkan respons untuk client.
 
 ---
 
 ## 3. Sequence Diagram
 
-Sequence Diagram menggambarkan urutan interaksi antara Client, WhatsApp Service, sistem WABiz, AI Service, dan Customer Service dalam menangani percakapan.
+Sequence Diagram menggambarkan urutan interaksi antara Client, WhatsApp, WhatsApp Service, WABiz Backend, AI Assistant, Database, dan CS Pendaftaran pada proses pendaftaran.
 
-### Sequence Diagram WABiz
+### Sequence Diagram — Alur Pendaftaran
 
-![Sequence Diagram](docs/images/sequence.png)
+![Sequence Diagram WABiz](docs/images/sequence.png)
 
----
+Pada alur ini, client mengirimkan pesan melalui WhatsApp. Pesan diteruskan oleh WhatsApp Service ke backend WABiz untuk diproses.
 
-# Arsitektur Proyek
+Backend mengambil pengaturan AI dan data informasi lembaga, kemudian mengirimkan pesan beserta data tersebut kepada AI Assistant untuk melakukan analisis intent.
 
-Arsitektur WABiz menggunakan pendekatan mobile application yang terintegrasi dengan backend, database, AI Service, dan WhatsApp Service.
-
-Secara umum arsitektur sistem:
-
-```text
-+-----------------------------+
-|     React Native + Expo     |
-|          Mobile App         |
-+-------------+---------------+
-              |
-              v
-+-----------------------------+
-|          Supabase           |
-|                             |
-|  - Authentication           |
-|  - PostgreSQL Database      |
-|  - Storage                  |
-|  - Realtime                 |
-|  - Edge Functions           |
-+-------------+---------------+
-              |
-        +-----+-----+
-        |           |
-        v           v
-+-------------+ +------------------+
-| AI Service  | | WhatsApp Service |
-+-------------+ +------------------+
+Jika pesan teridentifikasi sebagai kebutuhan pendaftaran, sistem menyimpan informasi terkait, memberikan notifikasi kepada CS Pendaftaran, dan mengirimkan respons kembali kepada client.
