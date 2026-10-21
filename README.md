@@ -16,7 +16,7 @@ Use Case Diagram menggambarkan interaksi antara aktor dengan fungsi-fungsi yang 
 
 ### Use Case Diagram WABiz
 
-![Use Case Diagram WABiz](docs/images/use-case.png)
+![Use Case Diagram WABiz]C:\Users\p\Documents\images
 
 **Aktor yang terlibat:**
 
@@ -33,7 +33,7 @@ Activity Diagram menggambarkan alur proses penanganan pesan pada sistem WABiz.
 
 ### Activity Diagram WABiz
 
-![Activity Diagram WABiz](docs/images/activity.png)
+![Activity Diagram WABiz]C:\Users\p\Documents\images
 
 Alur utama dimulai ketika sistem menerima pesan dari client. Pesan kemudian disimpan dan dianalisis oleh AI Assistant. Sistem akan menentukan apakah pesan berkaitan dengan pendaftaran atau pertanyaan umum.
 
@@ -49,7 +49,7 @@ Sequence Diagram menggambarkan urutan interaksi antara Client, WhatsApp, WhatsAp
 
 ### Sequence Diagram — Alur Pendaftaran
 
-![Sequence Diagram WABiz](docs/images/sequence.png)
+![Sequence Diagram WABiz]C:\Users\p\Documents\images
 
 Pada alur ini, client mengirimkan pesan melalui WhatsApp. Pesan diteruskan oleh WhatsApp Service ke backend WABiz untuk diproses.
 
