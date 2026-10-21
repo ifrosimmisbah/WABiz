@@ -2,7 +2,7 @@
 
 ## Deskripsi Proyek (20 Poin)
 
-WABiz merupakan aplikasi manajemen komunikasi berbasis WhatsApp yang dirancang untuk membantu organisasi dan bisnis mengelola komunikasi dengan pelanggan secara terpusat. Sistem ini ditujukan untuk berbagai jenis organisasi, seperti pondok pesantren, lembaga pendidikan, UMKM, pengelola kos-kosan, yayasan, dan organisasi lainnya.
+WABiz merupakan aplikasi manajemen komunikasi berbasis WhatsApp yang dirancang untuk membantu organisasi dan bisnis mengelola komunikasi dengan pelanggan secara terpusat. Sistem ini ditujukan untuk berbagai jenis organisasi, seperti pondok pesantren, lembaga pendidikan, dan organisasi lainnya.
 
 Proyek ini dikembangkan untuk memenuhi tugas mata kuliah **Analisis & Pengujian Sistem**, dengan fokus pada analisis kebutuhan, perancangan sistem menggunakan Unified Modeling Language (UML), implementasi aplikasi, integrasi layanan backend, dan pengujian fungsional.
 
